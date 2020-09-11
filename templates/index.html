@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+<script src="/static/js/index.js"></script>
+<title>EMBEBIDOS</title>
+</head>
+
+<body>
+
+<h2>Universidad Nacional de Chimborazo</h2>
+<h3>     Proyecto de Embebidos</h3>
+<h4>Integrantes:</h4>
+<p>Ruber Chiles</p>
+<p>Hector Segura</p>
+<p>Jhonny Tenorio</p>
+<p>Jorge Brito</p>
+<img src="/static/images/2.jpg" alt="user" style="width:300px;height:200px;">>
+
+<h1>Sensores</h1>
+<p>Temperatura:</p><p id="sensor">--</p>
+<p>Humedad:</p><p id="sensor1">--</p>
+
+<button id = 'LED1On'type="button" onclick="LED1_On();">
+Historial</button>
+<input type='file' accept='text/plain' onchange='openFile(event)'><br>
+    <div id='output'>
+    ...
+    </div>
+
+
+<script>
+ var openFile = function(event) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function(){
+          var text = reader.result;
+          var node = document.getElementById('output');
+          node.innerText = text;
+          console.log(reader.result.substring(0, 200));
+        };
+        reader.readAsText(input.files[0]);
+      };
+</script>
+</body>
+</html>
